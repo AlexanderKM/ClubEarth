@@ -50,6 +50,11 @@ coverage.xml
 # Django stuff:
 *.log
 
+# clubEarth stuff:
+clubEarth/earth/migrations/
+*.sqlite3
+db.sqlite3
+
 # Sphinx documentation
 docs/_build/
 
