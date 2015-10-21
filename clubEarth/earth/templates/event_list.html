@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+List of Courses
+{% endblock title %}
+{% block content %}
+
+{% for event in events %}
+<h1>{{ event.name }}</h1>
+<h2>Host: {{ event.host.user.username }}
+{% endfor %}
+
+
+{% endblock content %}
