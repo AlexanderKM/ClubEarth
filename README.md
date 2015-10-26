@@ -10,6 +10,7 @@ In a terminal, run `pip install Django==1.8.5`
 
 ## First time running the application
 * clone repo
+* cd into directory with manage.py file
 * `python manage.py migrate`
 * `python manage.py runserver`
 
