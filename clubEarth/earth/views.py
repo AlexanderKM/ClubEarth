@@ -22,9 +22,9 @@ def login(request):
             auth.login(request, user)
             return redirect(request.POST.get('next','earth:index'))
         else:
-            return render(request, "login.html", {"login_failed": True})
+            return render(request, "index.html", {"login_failed": True})
 
-    return render(request, "login.html")
+    return render(request, "index.html")
 
 def logout(request):
 
