@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}
-Events
+Event
 {% endblock title %}
 {% block content %}
 
-<h1>Events:</h1>
-
-{% for event in events %}
-<h1>{{ event.name }}</h1>
+<h1>Event:</h1>
+<h2>{{ event.name }}</h2>
 <h2>Host: {{ event.host.user.username }}</h2>
-{% endfor %}
 
 
 {% endblock content %}

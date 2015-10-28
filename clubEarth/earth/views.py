@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import auth
 from earth.models import *
@@ -54,3 +54,12 @@ def forums(request):
         'header': "Forums_All",
     }
     return render(request, "forums.html", context)
+
+def event_info(request, event_id=0):
+    event = get_object_or_404(Event, pk=event_id)
+
+    context = {
+        'event': event,
+        'header': "Events_All",
+    }
+    return render(request, "event_info.html", context)
