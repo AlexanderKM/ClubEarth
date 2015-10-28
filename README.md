@@ -13,6 +13,7 @@ In a terminal, run `pip install Django==1.8.5`
 * cd into directory with manage.py file
 * `python manage.py migrate`
 * `python manage.py runserver`
+* go to `localhost:8000` in your browser
 
 ## Migrations
 When changes are made to the models, the database needs to be migrated (or destroyed and re-made).
