@@ -40,3 +40,17 @@ def events(request):
         'header': "Events_All",
     }
     return render(request, "event_list.html", context)
+
+def news(request):
+    context = {
+        #'news': News.objects.all(),
+        'header': "News_All",
+    }
+    return render(request, "news_list.html", context)
+
+def forums(request):
+    context = {
+        #'news': News.objects.all(),
+        'header': "Forums_All",
+    }
+    return render(request, "forums.html", context)

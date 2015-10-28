@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}
-List of Courses
+Events
 {% endblock title %}
 {% block content %}
+
+<h1>Events:</h1>
 
 {% for event in events %}
 <h1>{{ event.name }}</h1>
