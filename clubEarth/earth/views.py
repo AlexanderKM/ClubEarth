@@ -7,9 +7,30 @@ from earth.forms import *
 # Create your views here.
 def index(request):
 
+    if request.user.is_authenticated():
+        return redirect("earth:home")
+
     if request.method == "POST":
-        if "register" in request.POST:
-            username = request.POST.get('username', '')
+        if "email" in request.POST:
+            user_form = UserForm(request.POST)
+            profile_form = ProfileForm(request.POST)
+
+            if user_form.is_valid():
+                django_user = user_form.save()
+                profile = profile_form.save(commit=False)
+                profile.user = django_user
+                profile.save()
+
+                profile_form = ProfileForm()
+                user_form = UserForm()
+
+                context = {
+                    "user_form": user_form,
+                    "profile_form":profile_form,
+                    "register_success": True,
+                }
+
+                return render(request, "index.html", context)
 
 
     user_form = UserForm()
@@ -21,6 +42,10 @@ def index(request):
     }
 
     return render(request, "index.html", context)
+
+def home(request):
+
+    return render(request, "home.html")
 
 
 def login(request):
@@ -45,7 +70,7 @@ def logout(request):
 
     if request.user.is_authenticated():
         auth.logout(request)
-        return render(request, "index.html")
+        return redirect("earth:index")
     else:
         return redirect("earth:index")
 

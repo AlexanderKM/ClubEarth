@@ -41,9 +41,17 @@
     
     <div class="col-md-4">
         <div class="row row-buffer-bottom">
+            {% if register_success %}<h2>Register success!</h2>{% endif %}
             <h2>Register</h2>
             <form action={% url 'earth:index' %} method="post">
                 {% csrf_token %}
+                {% for field in profile_form %}
+                <div class = "form-group">
+                    {% if field.is_hidden %}
+                    {{ field }}
+                    {% endif %}
+                </div>
+                {% endfor %}
                 <div class="form-group">
                     {{ user_form.username }}
                 </div>
