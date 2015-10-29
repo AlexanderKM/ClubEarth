@@ -2,10 +2,25 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import auth
 from earth.models import *
+from earth.forms import *
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+
+    if request.method == "POST":
+        if "register" in request.POST:
+            username = request.POST.get('username', '')
+
+
+    user_form = UserForm()
+    profile_form = ProfileForm()
+
+    context = {
+        "user_form": user_form,
+        "profile_form": profile_form,
+    }
+
+    return render(request, "index.html", context)
 
 
 def login(request):
