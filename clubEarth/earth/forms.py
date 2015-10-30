@@ -22,3 +22,15 @@ class UserForm(UserCreationForm):
 	class Meta:
 		model = User
 		fields= ["username", "password1", "password2", "email"]
+
+class EventForm(forms.ModelForm):
+
+	name = forms.CharField(label="Event Name", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Event Name', }))
+	description = forms.CharField(label="Description", required=True, 
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description', }))
+	
+
+	class Meta:
+		model = Event
+		exclude = ('host')
