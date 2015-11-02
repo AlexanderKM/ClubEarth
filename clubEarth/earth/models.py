@@ -27,3 +27,17 @@ class Attending(models.Model):
 
     def __str__(self):
         return "%s is attending %s" % (self.person.user.username, self.event)
+
+class Thread(models.Model):
+    category = models.CharField(max_length=400, null=False, blank=False)
+    title = models.CharField(max_length=80, null=False, blank=False)
+    author = models.ForeignKey(Profile, null=True, blank=True)
+    date = models.DateField(default=timezone.now())
+
+class Comment(model.Model):
+    content = models.CharField(max_length=400, null=False, blank=False)
+    author = models.ForeignKey(Profile, null=True, blank=True)
+    date = model.DateField(default=timezone.now())
+    thread = models.ForeignKey(Thread, null=True, blank=True)
+
+
