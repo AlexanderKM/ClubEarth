@@ -14,6 +14,8 @@ class Event(models.Model):
     name = models.CharField(max_length=80, null=False, blank=False)
     host = models.ForeignKey(Profile, null=True, blank=True)
     description = models.CharField(max_length=400, default="")
+    location1 = models.CharField(max_length=400, default="")
+    location2 = models.CharField(max_length=400, default="")
     date = models.DateField(default=timezone.now())
     start_time = models.TimeField(default=timezone.now())
     end_time = models.TimeField(default=timezone.now())

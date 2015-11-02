@@ -22,3 +22,9 @@ class UserForm(UserCreationForm):
 	class Meta:
 		model = User
 		fields= ["username", "password1", "password2", "email"]
+
+class EditEventForm(forms.Form):
+	name = forms.CharField(label="Event Name", required=True,
+		widget=forms.TextInput(attrs={'autocomplete':'off'}))
+	description = forms.CharField(label="Description",
+		widget=forms.Textarea(attrs={'autocomplete':'off'}))
