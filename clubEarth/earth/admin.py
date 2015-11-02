@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(Profile)
 admin.site.register(Event)
 admin.site.register(Attending)
+admin.site.register(Thread)
+admin.site.register(Comment)
