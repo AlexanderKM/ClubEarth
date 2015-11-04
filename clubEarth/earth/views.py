@@ -90,10 +90,34 @@ def news(request):
 
 def forums(request):
     context = {
-        #'news': News.objects.all(),
+        'categories': Category.objects.all(),
         'header': "Forums_All",
     }
     return render(request, "forums.html", context)
+
+def forum_category(request, category_id=0):
+    category = get_object_or_404(Category, pk=category_id)
+    threads = Thread.objects.filter(category=category)
+
+    context = {
+        'category': category,
+        'threads': threads,
+        'header': "Forums_All",
+    }
+
+    return render(request, "forum_category.html", context)
+
+def thread_info(request, thread_id=0):
+    thread = get_object_or_404(Thread, pk=thread_id)
+    comments = Comment.objects.filter(thread=thread)
+
+    context = {
+        'thread': thread,
+        'comments': comments,
+        'header': "Forums_All",
+    }
+
+    return render(request, "thread_info.html", context)
 
 def event_info(request, event_id=0):
     event = get_object_or_404(Event, pk=event_id)

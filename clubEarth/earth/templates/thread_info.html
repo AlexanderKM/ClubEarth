@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+{{thread.title}}
+{% endblock title %}
+{% block content %}
+
+<h1>Title: {{ thread.title }}</h1>
+<h2>Written by: {{ thread.author.user.username }}
+
+<h1>Comments: </h1>
+{% for comment in comments %}
+<h2>{{ comment.content }}</h2>
+{% endfor %}
+
+
+
+
+
+
+{% endblock content %}
