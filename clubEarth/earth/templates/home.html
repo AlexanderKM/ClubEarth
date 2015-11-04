@@ -3,7 +3,21 @@
 Home
 {% endblock title %}
 {% block content %}
-<h1>Home page logged in: </h1>
+<div class="col-md-4 col-buffer-right">
+	<div class="row">
+		<h2>Your Profile</h2>
+		<p>{{ request.user.username }}</p>
+		<p>Your rank: </p>
+	</div>
+	<div class="row">
+		<h2>Here's what people in your area are up to: </h2>
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="row">
+		<h2>Recommended for you:</h2>
+	</div>
+<div>
 
 
 {% endblock content %}

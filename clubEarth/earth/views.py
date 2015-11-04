@@ -79,6 +79,17 @@ def events(request):
         'events': Event.objects.all(),
         'header': "Events_All",
     }
+
+    if request.method == "POST" and "create_event" in request.POST:
+        new_event = Event.objects.create(name="Untitled Event", 
+                                         host=request.user.profile, 
+                                         description="Description of your event.",
+                                         location1="101 Example St.",
+                                         location2="West Henrietta, NY 14586")
+        new_event.save()
+
+        return redirect("earth:event_info", event_id=new_event.id)
+
     return render(request, "event_list.html", context)
 
 def news(request):
@@ -126,4 +137,27 @@ def event_info(request, event_id=0):
         'event': event,
         'header': "Events_All",
     }
+
+    if request.user.is_authenticated():
+        if request.method == 'POST' and 'edit_event' in request.POST:
+            eventform = EditEventForm( request.POST )
+
+            if eventform.is_valid():
+                event_name = eventform.cleaned_data['name']
+                event_description = eventform.cleaned_data['description']
+                event_location1 = eventform.cleaned_data['location1']
+                event_location2 = eventform.cleaned_data['location2']
+
+                event.name = event_name
+                event.description = event_description
+                event.location1 = event_location1
+                event.location2 = event_location2
+                event.save()
+
+                return redirect("earth:event_info", event_id=event.id)
+
+        if event.host == request.user.profile:
+            eventform = EditEventForm()
+            context['event_form'] = eventform
+
     return render(request, "event_info.html", context)

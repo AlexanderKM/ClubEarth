@@ -6,6 +6,11 @@ Events
 
 <h1>Events:</h1>
 
+<form name="create_event" method="POST">
+	{% csrf_token %}
+	<input type="submit" name="create_event" value="Create Event" />
+</form>
+
 {% for event in events %}
 <h1>{{ event.name }}</h1>
 <h2>Host: {{ event.host.user.username }}</h2>

@@ -6,3 +6,7 @@
 .row-buffer-bottom{
     margin-bottom: 30px;
 }
+
+.col-buffer-right{
+	margin-right: 20px;
+}
