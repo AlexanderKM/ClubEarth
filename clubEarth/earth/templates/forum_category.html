@@ -5,11 +5,20 @@
 {% block content %}
 
 <h1>{{ category.name }}</h1>
+<hr />
+<ol class="breadcrumb">
+	<li><a href="/forums">Forums</a></li>
+	<li class="active">{{category.name}}</li>
+</ol>
 
+<div class="list-group">
 {% for thread in threads %}
-<h2><a href="{% url 'earth:thread_info' thread.id %}">{{ thread }}</a></h2>
+<a href="{% url 'earth:thread_info' thread.id %}" class="list-group-item">
+<h4 clsas="list-group-item-heading">{{ thread.title }}</h4>
+<p class="list-group-item-text">by {{ thread.author }} on {{ thread.date }}</p>
+</a>
 {% endfor %}
-
+</div>
 
 
 

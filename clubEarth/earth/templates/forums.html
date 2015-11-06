@@ -3,13 +3,20 @@
 Forums
 {% endblock title %}
 {% block content %}
-<h1>Forums:</h1>
+<h1>Forums</h1>
+<hr />
+<ol class="breadcrumb">
+	<li class="active">Forums</li>
+</ol>
 
+<div class="list-group">
 {% for category in categories %}
-
-<h2><a href="{% url 'earth:forum_category' category.id %}">{{category.name}}</a></h2>
-
+<a href="{% url 'earth:forum_category' category.id %}" class="list-group-item">
+<h4 class="list-group-item-heading">{{category.name}}</h4>
+<p class="list-group-item-text">{{category.description}}</p>
+</a>
 {% endfor %}
+</div>
 
 
 {% endblock content %}

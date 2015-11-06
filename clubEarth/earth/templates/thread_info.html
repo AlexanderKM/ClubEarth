@@ -4,14 +4,22 @@
 {% endblock title %}
 {% block content %}
 
-<h1>Title: {{ thread.title }}</h1>
-<h2>Written by: {{ thread.author.user.username }}
+<h1>{{ thread.title }}<small> by: {{ thread.author }}</small></h1>
+<hr />
+<ol class="breadcrumb">
+	<li><a href="/forums">Forums</a></li>
+	<li><a href="{% url 'earth:forum_category' thread.category.id %}"> {{ thread.category.name }}</a></li>
+	<li class="active">{{ thread.title }}</li>
+</ol>
 
-<h1>Comments: </h1>
+<div class="panel panel-default">
 {% for comment in comments %}
-<h2>{{ comment.content }}</h2>
+	<div class="panel-heading"> {{ comment.author }} </div>
+	<div class="panel-body">
+		{{ comment.content }}
+	</div>
 {% endfor %}
-
+</div>
 
 
 
