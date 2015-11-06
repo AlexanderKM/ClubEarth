@@ -113,10 +113,30 @@ def forum_category(request, category_id=0):
     category = get_object_or_404(Category, pk=category_id)
     threads = Thread.objects.filter(category=category)
 
+    if request.method == "POST":
+        thread_form = ThreadForm(request.POST)
+        if thread_form.is_valid():
+            thread = thread_form.save(commit=False)
+            thread.category = category
+            thread.author = request.profile
+            thread.save()
+            context = {
+                'category': category,
+                'threads': Thread.objects.filter(category=category),
+                'header': "Forums_All",
+                'success': True,
+                'thread_form': thread_form,
+
+            }
+
+            return render( request, "forum_category.html", context)
+
+    thread_form = ThreadForm()
     context = {
         'category': category,
         'threads': threads,
         'header': "Forums_All",
+        'thread_form': thread_form,
     }
 
     return render(request, "forum_category.html", context)
