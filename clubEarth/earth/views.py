@@ -118,7 +118,7 @@ def forum_category(request, category_id=0):
         if thread_form.is_valid():
             thread = thread_form.save(commit=False)
             thread.category = category
-            thread.author = request.profile
+            thread.author = request.user.profile
             thread.save()
             context = {
                 'category': category,
@@ -145,10 +145,29 @@ def thread_info(request, thread_id=0):
     thread = get_object_or_404(Thread, pk=thread_id)
     comments = Comment.objects.filter(thread=thread)
 
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.thread = thread
+            comment.author = request.user.profile
+            comment.save()
+            context = {
+                'thread': thread,
+                'comments': Comment.objects.filter(thread=thread),
+                'header': "Forums_ALL",
+                'success': True,
+                'comment_form': comment_form,
+            }
+
+            return render(request, "thread_info.html", context)
+
+    comment_form = CommentForm()   
     context = {
         'thread': thread,
         'comments': comments,
         'header': "Forums_All",
+        'comment_form': comment_form,
     }
 
     return render(request, "thread_info.html", context)

@@ -33,6 +33,14 @@ class ThreadForm(forms.ModelForm):
 		model = Thread
 		fields = ["title", "content"]
 
+class CommentForm(forms.ModelForm):
+	content = forms.CharField(label="Content", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placerholder': 'Comment', }))
+
+	class Meta:
+		model = Comment
+		fields = ["content"]
+
 
 # class EditEventForm(forms.Form):
 # 	name 		= forms.CharField(required=True,
