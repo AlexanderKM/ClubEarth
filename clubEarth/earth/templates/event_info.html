@@ -23,7 +23,7 @@ Event
 		{% if event.host == my_user %}
 		<div class="action_item edit_btn">Edit This Event</div>
 		{% elif request.user.is_authenticated %}
-		<div class="action_item">Attend This Event</div>
+		<input type="submit" class="action_item" name="attend_event" value="Attend This Event" />
 		{% endif %}
 	</div>
 
@@ -33,17 +33,24 @@ Event
 <div class="row" style="margin-top:0;">
 	<div class="col-md-8 event_info">
 		<!-- Event info section -->
-		<div class="row">
+		<div class="row" style="margin-bottom:10px">
 			<div class="my_label col-md-3">Host:</div>
 
 			<div class="perm_info lg_info col-md-9">{{ event.host.user.username }}</div>
 		</div>
 
 
-		<div class="row">
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">Date &amp; Time:</div>
+
+			<div class="info sm_info col-md-9">{{ event.start_time }} on {{ event.date }}</div>
+		</div>
+
+
+		<div class="row" style="margin-bottom:10px">
 			<div class="my_label col-md-3">Description:</div>
 
-			<div class="info sm_info col-md-9">{{ event.description }}</div>
+			<div class="info sm_info col-md-9">{{ event.description|safe }}</div>
 
 			<div class="edit col-md-9">
 				<textarea type="text" id="description"  class="text_input" name="description">{{ event.description }}</textarea>
@@ -51,7 +58,7 @@ Event
 		</div>
 
 
-		<div class="row">
+		<div class="row" style="margin-bottom:10px">
 			<div class="my_label col-md-3">Address:</div>
 
 			<div class="info lg_info col-md-9">{{ event.location1 }}</div>
@@ -73,6 +80,7 @@ Event
 	<div class="col-md-3 col-md-offset-1 event_info">
 		{% for att in attendees %}
 		<a class="attendee" href="/profile/{{ att.person.user.username }}">{{ att.person.user.username }}</a>
+		<br>
 		{% endfor %}
 	</div>
 </div>
@@ -92,7 +100,14 @@ Event
 </form>
 
 <div class="row">
-	<!-- Comments section -->
+	<div class="event_attendees">Comments &amp; Questions</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-12 event_info">
+		put in comments here
+	</div>
 </div>
 
 <script>
