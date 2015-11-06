@@ -2,13 +2,123 @@
 {% block title %}
 Event
 {% endblock title %}
+
 {% block content %}
 
-<h1>Event:</h1>
-<h2>{{ event.name }}</h2>
-<h2>Host: {{ event.host.user.username }}</h2>
-<h2>Location1: {{ event.location1 }}</h2>
-<h2>Location2: {{ event.location2 }}</h2>
+
+<form name="edit_event" action="" method="POST" style="display:inline;">
+{% csrf_token %}
+
+<div class="row" style="margin-top:15px;margin-bottom:0;">
+	<!-- Event name section -->
+	<div class="col-md-4 info">
+		<div class="event_title">{{ event.name }}</div>
+	</div>
+
+	<div class="col-md-4 edit">
+		<input type="text" class="input_title" name="name" value="{{ event.name }}" />
+	</div>
+
+	<div class="col-md-3 col-md-offset-1">
+		{% if event.host == my_user %}
+		<div class="action_item edit_btn">Edit This Event</div>
+		{% elif request.user.is_authenticated %}
+		<input type="submit" class="action_item" name="attend_event" value="Attend This Event" />
+		{% endif %}
+	</div>
+
+	<div class="col-md-3 col-md-offset-1 event_attendees">Attending({{ attendee_count }})</div>
+</div>
+
+<div class="row" style="margin-top:0;">
+	<div class="col-md-8 event_info">
+		<!-- Event info section -->
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">Host:</div>
+
+			<div class="perm_info lg_info col-md-9">{{ event.host.user.username }}</div>
+		</div>
 
 
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">Date &amp; Time:</div>
+
+			<div class="info sm_info col-md-9">{{ event.start_time }} on {{ event.date }}</div>
+		</div>
+
+
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">Description:</div>
+
+			<div class="info sm_info col-md-9">{{ event.description|safe }}</div>
+
+			<div class="edit col-md-9">
+				<textarea type="text" id="description"  class="text_input" name="description">{{ event.description }}</textarea>
+			</div>
+		</div>
+
+
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">Address:</div>
+
+			<div class="info lg_info col-md-9">{{ event.location1 }}</div>
+			<div class="edit col-md-9">
+				<input type="text" class="input" name="location2" value="{{ event.location1 }}" />
+			</div>
+			<br>
+			<div class="info lg_info col-md-9">{{ event.location2 }}</div>
+			<div class="edit col-md-9 col-md-offset-3">
+				<input type="text" class="input" name="location1" value="{{ event.location2 }}" />
+			</div>
+		</div>
+
+		<div class="row">
+			<img src="/static/images/location.png" class="col-md-6 col-md-offset-3"></img>
+		</div>
+	</div>
+
+	<div class="col-md-3 col-md-offset-1 event_info">
+		{% for att in attendees %}
+		<a class="attendee" href="/profile/{{ att.person.user.username }}">{{ att.person.user.username }}</a>
+		<br>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="row">
+</div>
+
+<div class="row edit_actions">
+	<!-- Only visible when editing -->
+	<div class="col-md-6 col-md-offset-3">
+		<input type="submit" name="submit_event_edit" class="submit_edits" value="Finish Editing Event" />
+		<input type="submit" name="cancel_event_edit" class="cancel_edits" value="CANCEL" />
+	</div>
+
+</div>
+
+</form>
+
+<div class="row">
+	<div class="event_attendees">Comments &amp; Questions</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-12 event_info">
+		put in comments here
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+	$( ".action_item.edit_btn" )
+		.on( "click", function() {
+			$(".info").hide();
+			$(".edit").css("display", "inline-block");
+			$(".edit_actions").css("display", "block");
+			$(".edit_panel").css("display", "block");
+		})
+})
+</script>
 {% endblock content %}

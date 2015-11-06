@@ -88,6 +88,9 @@ def events(request):
                                          location2="West Henrietta, NY 14586")
         new_event.save()
 
+        attender = Attending.objects.create(event=new_event, person=request.user.profile)
+        attender.save()
+
         return redirect("earth:event_info", event_id=new_event.id)
 
     return render(request, "event_list.html", context)
@@ -132,32 +135,41 @@ def thread_info(request, thread_id=0):
 
 def event_info(request, event_id=0):
     event = get_object_or_404(Event, pk=event_id)
+    my_user = request.user.profile
+
+    attendees = Attending.objects.filter(event__id=event.id)
+    attendee_count = attendees.count
 
     context = {
         'event': event,
         'header': "Events_All",
+        'my_user': my_user,
+        'attendees': attendees,
+        'attendee_count': attendee_count
     }
 
     if request.user.is_authenticated():
-        if request.method == 'POST' and 'edit_event' in request.POST:
-            eventform = EditEventForm( request.POST )
+        if request.method == 'POST' and 'submit_event_edit' in request.POST:
+            event_name = request.POST['name']
+            event_description = request.POST['description']
+            event_location1 = request.POST['location1']
+            event_location2 = request.POST['location2']
 
-            if eventform.is_valid():
-                event_name = eventform.cleaned_data['name']
-                event_description = eventform.cleaned_data['description']
-                event_location1 = eventform.cleaned_data['location1']
-                event_location2 = eventform.cleaned_data['location2']
+            event.name = event_name
+            event.description = event_description
+            event.location1 = event_location1
+            event.location2 = event_location2
+            event.save()
 
-                event.name = event_name
-                event.description = event_description
-                event.location1 = event_location1
-                event.location2 = event_location2
-                event.save()
+            return redirect("earth:event_info", event_id=event.id)
+        elif request.method == 'POST' and 'cancel_event_edit' in request.POST:
+            return redirect("earth:event_info", event_id=event.id)
 
-                return redirect("earth:event_info", event_id=event.id)
+        elif request.method == 'POST' and 'attend_event' in request.POST:    
+            attender = Attending.objects.create(event=event, person=request.user.profile)
+            attender.save()
+            
+            return redirect("earth:event_info", event_id=event.id)
 
-        if event.host == request.user.profile:
-            eventform = EditEventForm()
-            context['event_form'] = eventform
 
     return render(request, "event_info.html", context)

@@ -23,8 +23,29 @@ class UserForm(UserCreationForm):
 		model = User
 		fields= ["username", "password1", "password2", "email"]
 
-class EditEventForm(forms.Form):
-	name = forms.CharField(label="Event Name", required=True,
-		widget=forms.TextInput(attrs={'autocomplete':'off'}))
-	description = forms.CharField(label="Description",
-		widget=forms.Textarea(attrs={'autocomplete':'off'}))
+class ThreadForm(forms.ModelForm):
+	title = forms.CharField(label="Title", required=True, 
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title', }))
+	content = forms.CharField(label="Content", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Content', }))
+
+	class Meta:
+		model = Thread
+		fields = ["title", "content"]
+
+
+# class EditEventForm(forms.Form):
+# 	name 		= forms.CharField(required=True,
+# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+
+# 	description = forms.CharField(label="Description",
+# 		widget	= forms.Textarea(attrs={'autocomplete':'off'}))
+
+# 	location1 	= forms.CharField(label="Address",
+# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+
+# 	location2 	= forms.CharField(
+# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+	
+# 	image 		= forms.CharField(label="Image",
+# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))

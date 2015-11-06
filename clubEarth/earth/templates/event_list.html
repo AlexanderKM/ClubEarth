@@ -12,7 +12,7 @@ Events
 </form>
 
 {% for event in events %}
-<h1>{{ event.name }}</h1>
+<h1><a href="{% url 'earth:event_info' event.id %}">{{ event.name }}</a></h1>
 <h2>Host: {{ event.host.user.username }}</h2>
 {% endfor %}
 
