@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+{{category.name}}
+{% endblock title %}
+{% block content %}
+
+<h1>{{ category.name }}</h1>
+
+{% for thread in threads %}
+<h2><a href="{% url 'earth:thread_info' thread.id %}">{{ thread }}</a></h2>
+{% endfor %}
+
+
+
+
+
+
+{% endblock content %}

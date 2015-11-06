@@ -170,3 +170,7 @@ textarea {
 .edit_actions .cancel_edits:hover{
 	text-decoration:underline;
 }
+
+.col-buffer-right{
+	margin-right: 20px;
+}

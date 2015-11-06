@@ -5,5 +5,11 @@ Forums
 {% block content %}
 <h1>Forums:</h1>
 
+{% for category in categories %}
+
+<h2><a href="{% url 'earth:forum_category' category.id %}">{{category.name}}</a></h2>
+
+{% endfor %}
+
 
 {% endblock content %}
