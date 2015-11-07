@@ -51,7 +51,7 @@
 .event-info-container{
 	display: inline-block;
 	padding-left: 20px;
-	padding-top: 20px;
+	padding-top: 32px;
 }
 
 .event-name{
@@ -61,19 +61,23 @@
 
 .event-host{
 	margin-left: 10px;
-	font-size: 20px;
+	font-size: 17px;
 	line-height: 20px;
-	margin-top: 5px;
+	margin-top: 0px;
+	color: #787878;
 }
 
 .calendar-section{
 	display: inline-block;
-	border-left: 1px solid black;
+	border-right: 1px solid black;
 }
 
 .event-date{
-	padding-left: 20px;
 	font-size: 16px;
+	float: right;
+	position: relative;
+	top: -75px;
+	right: 10px;
 }
 
 .event-more{
@@ -88,4 +92,18 @@
 
 .your-events-dropdown{
 	font-size: 28px;
+}
+
+.ui-accordion .ui-accordion-header{
+	font-size: 22px;
+	background: #7eaae6; 
+	color: #ffffff;
+}
+
+.event-date-label{
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-style: italic;
+	color: rgb(120, 120, 120);
+	margin-left: 20px;
 }
