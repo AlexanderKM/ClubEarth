@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^thread/(?P<thread_id>\d+)$', thread_info, name="thread_info"),
     url(r'^news/list$', news, name='news'),
     url(r'^forums/$', forums, name='forums'),
+    url(r'^event/create$', create_event, name='create_event'),
 ]

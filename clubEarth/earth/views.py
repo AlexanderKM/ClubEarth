@@ -174,6 +174,39 @@ def thread_info(request, thread_id=0):
     return render(request, "thread_info.html", context)
 
 @login_required
+def create_event(request):
+    my_user = request.user.profile
+
+    if request.method == "POST":
+        create_event_form = CreateEventForm(request.POST)
+        event = create_event_form.save(commit=False)
+        event.host = my_user
+
+        attender = Attending.objects.create(event=event, person=my_user)
+        attender.save()
+
+        attendee_count = attendees.count
+
+        comments = EventComment.objects.filter(event__id=event.id)
+
+        context = {
+            'event': event,
+            'header': "Events_All",
+            'my_user': my_user,
+            'attendees': attendees,
+            'attendee_count': attendee_count,
+            'comments': comments
+         }
+        return render(request, "event_info.html", context)
+
+    create_event_form = CreateEventForm()
+    context = {
+        'event_form': create_event_form,
+        'my_user': my_user
+    }
+    return render(request, "create_event.html", context)
+
+@login_required
 def event_info(request, event_id=0):
     event = get_object_or_404(Event, pk=event_id)
     my_user = request.user.profile
