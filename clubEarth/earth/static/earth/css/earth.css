@@ -198,15 +198,6 @@ textarea {
 	margin-right: 20px;
 }
 
-.navbar-default {
-	background-color: #347C2C;
-	background: -webkit-linear-gradient(#347C2C, ##3F954A); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#347C2C, #479C56); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#347C2C, #479C56); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#347C2C, #479C56); /* Standard syntax */
-  	border-color: #e7e7e7;
-}
-
 .navbar-default .navbar-brand {
 	color: white;
 }
