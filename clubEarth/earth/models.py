@@ -56,6 +56,12 @@ class Comment(models.Model):
     def __str__(self):
         return "Content: %s" % self.content
 
+class EventComment(models.Model):
+    author = models.ForeignKey(Profile)
+    body = models.CharField(max_length=400, null=False, blank=False)
+    event = models.ForeignKey(Event)
 
+    def __str__(self):
+        return self.body
 
 

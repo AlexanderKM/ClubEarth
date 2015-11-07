@@ -181,12 +181,15 @@ def event_info(request, event_id=0):
     attendees = Attending.objects.filter(event__id=event.id)
     attendee_count = attendees.count
 
+    comments = EventComment.objects.filter(event__id=event.id)
+
     context = {
         'event': event,
         'header': "Events_All",
         'my_user': my_user,
         'attendees': attendees,
-        'attendee_count': attendee_count
+        'attendee_count': attendee_count,
+        'comments': comments
     }
 
     if request.user.is_authenticated():
@@ -211,6 +214,12 @@ def event_info(request, event_id=0):
             attender.save()
             
             return redirect("earth:event_info", event_id=event.id)
+
+        elif request.method == 'POST' and 'create_event_comment' in request.POST:
+            event_comment = request.POST['comment']
+
+            comment = EventComment.objects.create(event=event, author=request.user.profile, body=event_comment)
+            comment.save()
 
 
     return render(request, "event_info.html", context)

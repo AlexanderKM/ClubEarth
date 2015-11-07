@@ -3,20 +3,117 @@
 Home
 {% endblock title %}
 {% block content %}
-<div class="col-md-4 col-buffer-right">
+<script type="text/javascript">
+	$('.container').removeClass("container");
+</script>
+
+<div class="col-md-3 userbar col-buffer-right">
 	<div class="row">
-		<h2>Your Profile</h2>
-		<p>{{ request.user.username }}</p>
-		<p>Your rank: </p>
+		<h3>Your Profile:</h3>
+		<p><i class="fa fa-user fa-2x"></i> {{ request.user.username }}</p>
+		<p>Your rank: <span class="badge">4</span> </p>
 	</div>
 	<div class="row">
-		<h2>Here's what people in your area are up to: </h2>
+		<h3>Top Activity:</h3>
+		<div class="col-sm-12">
+			<ul class="list-group">
+			  <a href="#" class="list-group-item">New Thread</a>
+			  <br />
+			  <a href="#" class="list-group-item">New Event</a>
+			  <br />
+			  <a href="#" class="list-group-item">New Thread</a>
+			  <br />
+			  <a href="#" class="list-group-item">New Event</a>
+			  <br />
+			  <a href="#" class="list-group-item">New Thread</a>
+			</ul>
+		</div>
 	</div>
+
 </div>
-<div class="col-md-6">
+<div class="col-md-8" style="padding-top: 15px">
 	<div class="row">
-		<h2>Recommended for you:</h2>
-	</div>
+		<h3>News for You:</h3>
+		
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media">
+				  <div class="media-left media-middle">
+				    <a href="#">
+				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">Media heading</h4>
+				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media">
+				  <div class="media-left media-middle">
+				    <a href="#">
+				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">Media heading</h4>
+				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media">
+				  <div class="media-left media-middle">
+				    <a href="#">
+				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">Media heading</h4>
+				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media">
+				  <div class="media-left media-middle">
+				    <a href="#">
+				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">Media heading</h4>
+				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media">
+				  <div class="media-left media-middle">
+				    <a href="#">
+				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">Media heading</h4>
+				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				  </div>
+				</div>
+			</div>
+		</div>
 <div>
 
 
