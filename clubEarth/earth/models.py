@@ -8,7 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return "Profile for user %r" % self.user.username
+        return self.user.username
 
 class Event(models.Model):
     name = models.CharField(max_length=80, null=False, blank=False)
@@ -31,7 +31,8 @@ class Attending(models.Model):
         return "%s is attending %s" % (self.person.user.username, self.event)
 
 class Category(models.Model):
-    name = models.CharField(max_length=40, null=False, blank=False)
+    name = models.CharField(max_length=20, null=False, blank=False)
+    description = models.CharField(max_length=140, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -39,6 +40,7 @@ class Category(models.Model):
 class Thread(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=80, null=False, blank=False)
+    content = models.CharField(max_length=1000, null=True, blank=True)
     author = models.ForeignKey(Profile, null=True, blank=True)
     date = models.DateField(default=timezone.now())
 
