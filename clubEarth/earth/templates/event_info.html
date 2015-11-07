@@ -105,22 +105,22 @@ Event
 
 
 <div class="row">
-	<div class="col-md-12 event_info">
-		{% for comm in comment %}
-		<div class="row">
-			<div class="event_comment">
-				<div class="comment_author col-md-3">{{ comm.author }}:</div>
-				<div class="comment_body col-md-9">{{ comm.body }}</div>
-			</div>
+	<div class="col-md-12 comment_section">
+		{% for comm in comments %}
+		<div class="row event_comment">
+			<div class="comment_author">{{ comm.author }}:</div>
+			<div class="comment_body">{{ comm.body }}</div>
 		</div>
+		{% endfor %}
 	</div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-bottom:30px;">
 	<form name="event_comment" action="" method="POST">
-		<input type="text" class="comment_input col-md-7 col-md-offset-1" name="comment" />
+		{% csrf_token %}
+		<input type="text" class="col-md-7 col-md-offset-1 comment_input" name="comment" />
 
-		<input type="submit" name="create_event_comment" class="submit_edits col-md-3 col-md-offset-1" value="Submit Comment" />
+		<input type="submit" name="create_event_comment" class="submit_edits col-md-3" value="Submit Comment" />
 	</form>
 </div>
 
