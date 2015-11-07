@@ -63,7 +63,12 @@ def login(request):
             auth.login(request, user)
             return redirect(request.POST.get('next','earth:index'))
         else:
-            return render(request, "index.html", {"login_failed": True})
+            context = {
+                "login_failed": True,
+                "user_form": UserForm(),
+                "profile_form": ProfileForm(),
+            }
+            return render(request, "index.html", context)
 
     return render(request, "index.html")
 
