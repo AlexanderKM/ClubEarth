@@ -35,11 +35,22 @@ class ThreadForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
 	content = forms.CharField(label="Content", required=True,
-		widget=forms.TextInput(attrs={'class': 'form-control', 'placerholder': 'Comment', }))
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Comment', }))
 
 	class Meta:
 		model = Comment
 		fields = ["content"]
+
+class EventForm(form.ModelForm):
+	name = forms.CharField(label="Event Name", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Event Name'}))
+	description = forms.CharField(label="Description", required=True, 
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}))
+	location1 = forms.CharField(label="location1", required=True,
+		widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Address 1'}))
+	location2 = forms.CharField(label ="location2", required=True, 
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Address 2'}))
+	
 
 
 # class EditEventForm(forms.Form):
