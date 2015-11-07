@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from earth.views import login, logout
+from earth.views import login, logout, login_page
 
 # Import URLs from earth app
 from earth.urls import urlpatterns as earth_urls
@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', login, name="login"),
     url(r'^logout/$', logout, name="logout"),
+    url(r'^login_page/$', login_page, name="login_page"),
 ]

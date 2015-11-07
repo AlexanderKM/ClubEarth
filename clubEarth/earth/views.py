@@ -44,9 +44,36 @@ def index(request):
 
     return render(request, "index.html", context)
 
+@login_required
 def home(request):
 
-    return render(request, "home.html")
+    context = {
+        "header": "News_All",
+    }
+    return render(request, "home.html", context)
+
+def login_page(request):
+    if request.user.is_authenticated():
+        return redirect("earth:index")
+
+    if request.method == "POST":
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect(request.POST.get('next','earth:index'))
+        else:
+            context = {
+                "login_failed": True,
+            }
+            return render(request, "login.html", context)
+
+    context = {
+        "login_failed": False,
+    }
+    return render(request, "login.html", context)
 
 
 def login(request):
