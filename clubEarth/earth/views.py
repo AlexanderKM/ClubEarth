@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from earth.models import *
 from earth.forms import *
 
@@ -172,6 +173,7 @@ def thread_info(request, thread_id=0):
 
     return render(request, "thread_info.html", context)
 
+@login_required
 def event_info(request, event_id=0):
     event = get_object_or_404(Event, pk=event_id)
     my_user = request.user.profile

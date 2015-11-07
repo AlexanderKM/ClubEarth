@@ -14,7 +14,7 @@ body{
 	background: #277554;
 }
 
-.navbar-brand{
+.navbar-brand {
 	font-family: sofia-pro;
 }
 
@@ -196,8 +196,9 @@ body{
 	color: white;
 }
 
-.navbar-default .navbar-brand:hover {
-	color: black;
+.navbar-header .navbar-brand:hover {
+	color: #b3b3b3;
+	font-weight: bold;
 }
 
 .navbar-default .navbar-nav>li>a{
@@ -206,14 +207,6 @@ body{
 
 .navbar-default .navbar-nav>li>a{
 	color: white;
-}
-
-.navbar-default .navbar-nav>.active>a {
-	background-color: #B3CEEC;
-}
-
-.navbar-default .navbar-nav>.active>a:hover {
-	background-color: #B3CEEC;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
