@@ -42,6 +42,7 @@ textarea {
 	background: linear-gradient(#0CB02D, #27C447);
 	cursor:pointer;
 	border:1px solid #cccccc;
+	padding:0 40px;
 }
 
 .action_item:hover{
