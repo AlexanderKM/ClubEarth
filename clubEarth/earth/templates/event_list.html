@@ -25,13 +25,17 @@ Events
 				<h3 class="event-host">hosted by {{ event.host.user.username }}</h3>
 			</div>
 			<div class="event-date">10/4/15</div>
-			<a class="event-more" href="{% url 'earth:event_info' event.id %}">More</a>
 		</div> 
 		{% endfor %}
 	</div>
 </div>
-<div class="col-md-3 calendar">
+<div class="col-md-3 calendar-section">
 	<h2>Calendar</h2>
+	<div class="your-events-container">
+		<div class="your-events-dropdown events-going">Going</div>
+		<div class="your-events-dropdown events-not-going">Not Going</div>
+		<div class="your-events-dropdown events-pending">Pending</div>
+	</div>
 </div>
 
 
