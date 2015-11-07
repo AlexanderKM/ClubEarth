@@ -58,7 +58,7 @@ class CommentForm(forms.ModelForm):
 	image 		= forms.CharField(label="Image",
 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
 
-class CreateEventForm(forms.Form):
+class EventForm(forms.Form):
 	name 		= forms.CharField(required=True,
 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
 
