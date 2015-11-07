@@ -6,12 +6,6 @@ body{
 	background: #003C23;
 }
 
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover
-textarea { 
-    resize: none; 
-    background: #277554;
-}
-
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{
 	background: #277554;
 }
