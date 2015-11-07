@@ -40,7 +40,7 @@ body{
 }
 
 .action_item:hover{
-	background: #0BA129;
+	background: #B3CEEC;
 }
 
 .event_title{
@@ -190,4 +190,32 @@ body{
 
 .col-buffer-right{
 	margin-right: 20px;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: black;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: white;
+}
+
+.navbar-default .navbar-nav>.active>a {
+	background-color: #B3CEEC;
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+	background-color: #B3CEEC;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: black;
 }

@@ -4,14 +4,62 @@
 {% endblock title %}
 {% block content %}
 
-<h1>Title: {{ thread.title }}</h1>
-<h2>Written by: {{ thread.author.user.username }}
+<h1>{{ thread.title }}<small> by: {{ thread.author }} <br /> Rochester, NY <i class="fa fa-location-arrow"></i></small></h1>
 
-<h1>Comments: </h1>
+<script type="text/javascript">
+	$('#newcomment').on('shown.bs.modal', function () {
+	  $('input[name="content"]').focus()
+	})
+</script>
+
+<div class="col-sm-offset-10 col-sm-2 pull-right"><a data-toggle="modal" data-target="#newcomment" class="btn btn-default pull-right">New Comment</a></div>
+<br />
+<hr />
+<ol class="breadcrumb">
+	<li><a href="/forums">Forums</a></li>
+	<li><a href="{% url 'earth:forum_category' thread.category.id %}"> {{ thread.category.name }}</a></li>
+	<li class="active">{{ thread.title }}</li>
+</ol>
+
+<div class="panel panel-default">
+	<div class="panel-heading"> {{ thread.author }} on {{ thread.date }} </div>
+	<div class="panel-body">
+		{{ thread.content }}
+	</div>
+</div>
+
+
 {% for comment in comments %}
-<h2>{{ comment.content }}</h2>
+<div class="panel panel-default">
+	<div class="panel-heading"> {{ comment.author }} on {{ comment.date }} </div>
+	<div class="panel-body">
+		{{ comment.content }}
+	</div>
+</div>
 {% endfor %}
 
+<div class="modal fade" id="newcomment" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Comment Form</h4>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'earth:thread_info' thread.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ comment_form.content }}
+        </div>   	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 

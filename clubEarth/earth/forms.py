@@ -23,6 +23,25 @@ class UserForm(UserCreationForm):
 		model = User
 		fields= ["username", "password1", "password2", "email"]
 
+class ThreadForm(forms.ModelForm):
+	title = forms.CharField(label="Title", required=True, 
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title', }))
+	content = forms.CharField(label="Content", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Content', }))
+
+	class Meta:
+		model = Thread
+		fields = ["title", "content"]
+
+class CommentForm(forms.ModelForm):
+	content = forms.CharField(label="Content", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placerholder': 'Comment', }))
+
+	class Meta:
+		model = Comment
+		fields = ["content"]
+
+
 # class EditEventForm(forms.Form):
 # 	name 		= forms.CharField(required=True,
 # 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
