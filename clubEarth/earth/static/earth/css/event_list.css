@@ -1,0 +1,85 @@
+.event-list{
+	float: left;
+	width: 70%;
+}
+
+.event-list-top{
+	text-align: center;
+	margin-bottom: 35px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+}
+
+.area-text{
+	display: inline;
+	font-size:28px;
+	margin-bottom: 5px;
+}
+
+.create-event-btn{
+	margin-top: 8px;
+}
+
+.event-card-list{
+	overflow:auto;
+	height: 598px;
+	border-bottom: 1px solid black;
+}
+
+.event-container{
+	background-color: #ffffff;
+	width: 60%;
+	height: 160px;
+	margin: auto;
+	margin-bottom: 40px;
+	border-radius: 5px;
+	border: 2px solid #d1d1d1;
+}
+
+.event-image-container{
+	display:inline-block;
+	float:left;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.event-image{
+	width: 75px;
+	height: 75px;
+}
+
+.event-info-container{
+	display: inline-block;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.event-info-container h1, h2{
+	line-height: 0px;
+}
+
+.event-name{
+	font-size: 30px;
+}
+
+.event-host{
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+.calendar{
+	display: inline-block;
+	border-left: 1px solid black;
+}
+
+.event-date{
+	padding-left: 20px;
+	padding-top: 20px;
+	font-size: 16px;
+}
+
+.event-more{
+	float: right;
+	position: relative;
+	right: 15px;
+}

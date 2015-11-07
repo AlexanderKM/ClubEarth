@@ -38,3 +38,19 @@ class EditEventForm(forms.Form):
 	
 	image 		= forms.CharField(label="Image",
 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+
+class CreateEventForm(forms.Form):
+	name 		= forms.CharField(required=True,
+		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+
+	description = forms.CharField(label="Description",
+		widget	= forms.Textarea(attrs={'autocomplete':'off'}))
+
+	location1 	= forms.CharField(label="Address",
+		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+
+	location2 	= forms.CharField(
+		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
+	
+	image 		= forms.CharField(label="Image",
+		widget	= forms.TextInput(attrs={'autocomplete':'off'}))

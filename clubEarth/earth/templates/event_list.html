@@ -4,17 +4,35 @@ Events
 {% endblock title %}
 {% block content %}
 
-<h1>Events:</h1>
-
-<form name="create_event" method="POST">
-	{% csrf_token %}
-	<input type="submit" name="create_event" value="Create Event" />
-</form>
-
-{% for event in events %}
-<h1><a href="{% url 'earth:event_info' event.id %}">{{ event.name }}</a></h1>
-<h2>Host: {{ event.host.user.username }}</h2>
-{% endfor %}
+<div class="col-md-9 event-list">
+	<div class="event-list-top">
+		<h1>Events In Your Area</h1>
+		<h2 class="area-text">Rochester, NY</h2>
+		<a class="change-area" href="">Change</a>
+		<form name="create_event" method="POST">
+			{% csrf_token %}
+			<input class="create-event-btn" type="submit" name="create_event" value="Create Event" />
+		</form>
+	</div>
+	<div class="event-card-list">
+		{% for event in events %}
+		<div class="event-container">
+			<div class="event-image-container">
+				<img class="event-image" src="http://static1.squarespace.com/static/559bd163e4b01adcb4fa3be4/55b7d23ee4b015b50439b1b2/55b7d34de4b032739413227e/1443973774024/Final+Leaf+Project_Page_3.jpg?format=1000w"></img>
+			</div>
+			<div class="event-info-container">
+				<h1 class="event-name">{{ event.name }}</h>
+				<h3 class="event-host">hosted by {{ event.host.user.username }}</h3>
+			</div>
+			<div class="event-date">10/4/15</div>
+			<a class="event-more" href="{% url 'earth:event_info' event.id %}">More</a>
+		</div> 
+		{% endfor %}
+	</div>
+</div>
+<div class="col-md-3 calendar">
+	<h2>Calendar</h2>
+</div>
 
 
 {% endblock content %}
