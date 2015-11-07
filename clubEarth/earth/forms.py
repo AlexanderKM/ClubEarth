@@ -41,48 +41,17 @@ class CommentForm(forms.ModelForm):
 		model = Comment
 		fields = ["content"]
 
-class EventForm(form.ModelForm):
+class EventForm(forms.ModelForm):
 	name = forms.CharField(label="Event Name", required=True,
 		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Event Name'}))
 	description = forms.CharField(label="Description", required=True, 
 		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}))
 	location1 = forms.CharField(label="location1", required=True,
-		widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Address 1'}))
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Address 1'}))
 	location2 = forms.CharField(label ="location2", required=True, 
 		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Address 2'}))
-	
 
+	class Meta:
+		model = Event
+		fields = ["name", "description", "location1", "location2"]
 
-# class EditEventForm(forms.Form):
-# 	name 		= forms.CharField(required=True,
-# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-
-# 	description = forms.CharField(label="Description",
-# 		widget	= forms.Textarea(attrs={'autocomplete':'off'}))
-
-# 	location1 	= forms.CharField(label="Address",
-# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-
-# 	location2 	= forms.CharField(
-# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-	
-	image 		= forms.CharField(label="Image",
-		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-
-class CreateEventForm(forms.Form):
-	name 		= forms.CharField(required=True,
-		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-
-	description = forms.CharField(label="Description",
-		widget	= forms.Textarea(attrs={'autocomplete':'off'}))
-
-	location1 	= forms.CharField(label="Address",
-		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-
-	location2 	= forms.CharField(
-		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-	
-	image 		= forms.CharField(label="Image",
-		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
-# 	image 		= forms.CharField(label="Image",
-# 		widget	= forms.TextInput(attrs={'autocomplete':'off'}))
