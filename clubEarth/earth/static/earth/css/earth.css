@@ -2,6 +2,10 @@ body{
 	background-color:#F6F6F6;
 }
 
+.navbar {
+	margin-bottom: 0px;
+}
+
 .navbar, .navbar-default{
 	background: #003C23;
 }
@@ -198,7 +202,6 @@ body{
 
 .navbar-header .navbar-brand:hover {
 	color: #b3b3b3;
-	font-weight: bold;
 }
 
 .navbar-default .navbar-nav>li>a{
@@ -211,4 +214,10 @@ body{
 
 .navbar-default .navbar-nav>li>a:hover {
 	color: black;
+}
+
+.userbar {
+    margin-left: 15px;
+    border-right: solid 1px;
+    height: calc(90vh);
 }
