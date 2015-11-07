@@ -54,17 +54,16 @@
 	padding-top: 20px;
 }
 
-.event-info-container > h1 .event-info-container > h2{
-	line-height: 0px;
-}
-
 .event-name{
 	font-size: 30px;
+	line-height: 30px;
 }
 
 .event-host{
 	margin-left: 10px;
 	font-size: 20px;
+	line-height: 20px;
+	margin-top: 5px;
 }
 
 .calendar-section{

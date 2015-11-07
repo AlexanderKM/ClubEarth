@@ -21,10 +21,10 @@ Events
 				<img class="event-image" src="http://static1.squarespace.com/static/559bd163e4b01adcb4fa3be4/55b7d23ee4b015b50439b1b2/55b7d34de4b032739413227e/1443973774024/Final+Leaf+Project_Page_3.jpg?format=1000w"></img>
 			</div>
 			<div class="event-info-container">
-				<h1 class="event-name">{{ event.name }}</h>
+				<a class="event-name" href="{% url 'earth:event_info' event.id %}">{{ event.name }}</a>
 				<h3 class="event-host">hosted by {{ event.host.user.username }}</h3>
+				<div class="event-date">10/4/15</div>
 			</div>
-			<div class="event-date">10/4/15</div>
 		</div> 
 		{% endfor %}
 	</div>
