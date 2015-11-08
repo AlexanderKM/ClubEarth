@@ -17,15 +17,12 @@ Home
 		<h3>Top Activity:</h3>
 		<div class="col-sm-12">
 			<ul class="list-group">
-			  <a href="#" class="list-group-item">New Thread</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Event</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Thread</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Event</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Thread</a>
+			  {% for event in events %}
+			  <a href="{% url 'earth:event_info' event.id %}" class="list-group-item"><i class="fa fa-calendar"></i> {{ event.name }}</a>
+			  {% endfor %}
+			  {% for thread in threads %}
+			  <a href="{% url 'earth:thread_info' thread.id %}" class="list-group-item"><i class="fa fa-file-text"></i> {{ thread.title }}</a>
+			  {% endfor %}
 			</ul>
 		</div>
 	</div>
@@ -34,86 +31,28 @@ Home
 <div class="col-md-8" style="padding-top: 15px">
 	<div class="row">
 		<h3>News for You:</h3>
+
+		{% for article in articles %}
 		
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="media">
 				  <div class="media-left media-middle">
 				    <a href="#">
-				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
+				      <img class="media-object" src="/static/images/news64.png" alt="...">
 				    </a>
 				  </div>
 				  <div class="media-body">
-				    <h4 class="media-heading">Media heading</h4>
-				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				    <a href="{{ article.url }}" target="_blank"><h4 class="media-heading">{{ article.title }}</h4></a>
+				    {{ article.content }}
 				  </div>
 				</div>
 			</div>
 		</div>
 
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="media">
-				  <div class="media-left media-middle">
-				    <a href="#">
-				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-				    </a>
-				  </div>
-				  <div class="media-body">
-				    <h4 class="media-heading">Media heading</h4>
-				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				  </div>
-				</div>
-			</div>
-		</div>
+		{% endfor %}
 
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="media">
-				  <div class="media-left media-middle">
-				    <a href="#">
-				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-				    </a>
-				  </div>
-				  <div class="media-body">
-				    <h4 class="media-heading">Media heading</h4>
-				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				  </div>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="media">
-				  <div class="media-left media-middle">
-				    <a href="#">
-				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-				    </a>
-				  </div>
-				  <div class="media-body">
-				    <h4 class="media-heading">Media heading</h4>
-				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				  </div>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="media">
-				  <div class="media-left media-middle">
-				    <a href="#">
-				      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-				    </a>
-				  </div>
-				  <div class="media-body">
-				    <h4 class="media-heading">Media heading</h4>
-				    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				  </div>
-				</div>
-			</div>
-		</div>
+		
 <div>
 
 

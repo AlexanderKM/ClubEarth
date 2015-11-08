@@ -32,7 +32,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li {% if header == "News_All" %} class="active" {% endif %}><a href="{% url 'earth:news' %}">News</a></li>
+            <li {% if header == "News_All" %} class="active" {% endif %}><a href="{% url 'earth:home' %}">News</a></li>
             <li {% if header == "Events_All" %} class="active" {% endif %}><a href="{% url 'earth:events' %}">Events</a></li>
             <li {% if header == "Forums_All" %} class="active" {% endif %}><a href="{% url 'earth:forums' %}">Forums</a></li>
             
@@ -45,10 +45,13 @@
           {% else %}
           <form action="{% url 'login' %}" class="navbar-form navbar-right" method="post">
             {% csrf_token %}
-            <div class="form-group">
+            <div class="form-group {% if login_failed %}has-error{% endif %}">
+                {% if login_failed %}
+                <label for="username" style="color:white">Login failed</label>
+                {% endif %}
                 <input type="text" class="form-control" name="username" placeholder="Username">
             </div>
-            <div class="form-group">
+            <div class="form-group {% if login_failed %}has-error{% endif %}">
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-default">Sign In</button>
