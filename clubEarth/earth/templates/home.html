@@ -17,15 +17,12 @@ Home
 		<h3>Top Activity:</h3>
 		<div class="col-sm-12">
 			<ul class="list-group">
-			  <a href="#" class="list-group-item">New Thread</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Event</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Thread</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Event</a>
-			  <br />
-			  <a href="#" class="list-group-item">New Thread</a>
+			  {% for event in events %}
+			  <a href="{% url 'earth:event_info' event.id %}" class="list-group-item"><i class="fa fa-calendar"></i> {{ event.name }}</a>
+			  {% endfor %}
+			  {% for thread in threads %}
+			  <a href="{% url 'earth:thread_info' thread.id %}" class="list-group-item"><i class="fa fa-file-text"></i> {{ thread.title }}</a>
+			  {% endfor %}
 			</ul>
 		</div>
 	</div>

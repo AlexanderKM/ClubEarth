@@ -47,8 +47,14 @@ def index(request):
 @login_required
 def home(request):
 
+    threads = Thread.objects.all()[:3]
+    events = Event.objects.all()[:3]
+
+
     context = {
         "header": "News_All",
+        "threads": threads,
+        "events": events,
     }
     return render(request, "home.html", context)
 
