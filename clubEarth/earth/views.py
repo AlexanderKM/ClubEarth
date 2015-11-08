@@ -49,12 +49,14 @@ def home(request):
 
     threads = Thread.objects.all()[:3]
     events = Event.objects.all()[:3]
+    articles = Article.objects.all()[:6]
 
 
     context = {
         "header": "News_All",
         "threads": threads,
         "events": events,
+        "articles": articles,
     }
     return render(request, "home.html", context)
 
