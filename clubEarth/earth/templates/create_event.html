@@ -5,26 +5,49 @@ Event
 
 {% block content %}
 
-<h3>Create Event</h3>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script type"text/javascript">
+   $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
+
 <div class="create-event-container">
+	<h2 class="create-event-text">Create Event</h2>
         <div class="row row-buffer-bottom">
-            {% if register_success %}<h2>Register success!</h2>{% endif %}
-            <h2>Register</h2>
-            <form action={% url 'earth:index' %} method="post">
+            <form action={% url 'earth:create_event' %} method="post">
                 {% csrf_token %}
-                <div class="form-group">
-                    {{ user_form.username }}
-                </div>
-                <div class="form-group">
-                    {{ user_form.password1 }}
-                </div>
-                <div class="form-group">
-                    {{ user_form.password2 }}
-                </div>
-                <div class="form-group">
-                    {{ user_form.email }}
-                </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+                <div class="col-md-5">
+	                <div class="form-group">
+	                    {{ event_form.name }}
+	                </div>
+	                <div class="form-group" rows="3">
+	                    {{ event_form.description }}
+	                </div>
+	                <div class="form-group event-date-field">
+	                	{{ event_form.date}}
+	            	</div>
+	            	<div class="form-group event-time-field">
+	            		{{ event_form.time }}
+	            	</div>
+	            </div>
+	            <div class="col-md-5">
+	            	<div class="form-group">
+	                    {{ event_form.location1 }}
+	                </div>
+					<img src="/static/images/location.png" class="event-map"></img>
+	                <div class="form-group">
+	                    {{ event_form.location2 }}
+	                </div>
+	                <button type="submit" class="btn btn-default submit-event">Submit</button>
+	            </div>
             </form>
         </div>
     </div>

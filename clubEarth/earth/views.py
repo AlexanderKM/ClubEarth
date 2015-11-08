@@ -178,13 +178,15 @@ def create_event(request):
     my_user = request.user.profile
 
     if request.method == "POST":
-        create_event_form = CreateEventForm(request.POST)
+        create_event_form = EventForm(request.POST)
         event = create_event_form.save(commit=False)
         event.host = my_user
+        event.save()
 
         attender = Attending.objects.create(event=event, person=my_user)
         attender.save()
 
+        attendees = Attending.objects.filter(event__id=event.id)
         attendee_count = attendees.count
 
         comments = EventComment.objects.filter(event__id=event.id)
@@ -199,7 +201,7 @@ def create_event(request):
          }
         return render(request, "event_info.html", context)
 
-    create_event_form = CreateEventForm()
+    create_event_form = EventForm()
     context = {
         'event_form': create_event_form,
         'my_user': my_user
@@ -231,11 +233,15 @@ def event_info(request, event_id=0):
             event_description = request.POST['description']
             event_location1 = request.POST['location1']
             event_location2 = request.POST['location2']
+            event_date = request.POST['date']
+            event_time = request.POST['time']
 
             event.name = event_name
             event.description = event_description
             event.location1 = event_location1
             event.location2 = event_location2
+            event.date = event_date
+            event.time = event_time
             event.save()
 
             return redirect("earth:event_info", event_id=event.id)

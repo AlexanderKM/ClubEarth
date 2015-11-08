@@ -1,0 +1,33 @@
+.create-event-container{
+	padding-top: 50px;
+}
+
+.create-event-text{
+	margin-bottom: 25px;
+}
+
+.event-date-field{
+	width: 50%;
+}
+
+.event-time-field{
+	width: 50%;
+}
+
+.submit-event{
+	margin-top: 25px;
+	float: right;
+	background: #113b74;
+	color: white;
+	border: 1px #A0A0A0 solid;
+}
+
+.submit-event:hover{
+	background: #5482C1;
+}
+
+.event-map{
+	width: 500px;
+	height: 260px;
+	margin-bottom: 25px;
+}
