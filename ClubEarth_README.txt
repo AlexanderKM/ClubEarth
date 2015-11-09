@@ -5,7 +5,7 @@ Application requirements:
 -Django 1.8.5
 
 Running the application:
--unzip the zip file
+-unzip the 'ClubEarth' zip file
 -in a terminal, navigate to the directory where 'manage.py' is located
 -run 'python manage.py runserver'
 -go to 'localhost:8000' in a browser
