@@ -41,9 +41,33 @@ Event
 
 
 		<div class="row" style="margin-bottom:10px">
-			<div class="my_label col-md-3">Date &amp; Time:</div>
+			<div class="my_label col-md-3">Date: </div>
 
-			<div class="info sm_info col-md-9">{{ event.start_time }} on {{ event.date }}</div>
+			<div class="info sm_info col-md-9">{{ event.date }}</div>
+
+			<div class="edit col-md-9">
+				<textarea type="text" id="date"  class="text_input" name="date">{{ event.date  }}</textarea>
+			</div>
+		</div>
+
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">Start time: </div>
+
+			<div class="info sm_info col-md-9">{{ event.start_time }}</div>
+
+			<div class="edit col-md-9">
+				<textarea type="text" id="start_time"  class="text_input" name="start_time">{{ event.start_time  }}</textarea>
+			</div>
+		</div>
+
+		<div class="row" style="margin-bottom:10px">
+			<div class="my_label col-md-3">End time: </div>
+
+			<div class="info sm_info col-md-9">{{ event.end_time }}</div>
+
+			<div class="edit col-md-9">
+				<textarea type="text" id="end_time"  class="text_input" name="end_time">{{ event.end_time  }}</textarea>
+			</div>
 		</div>
 
 

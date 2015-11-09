@@ -274,14 +274,16 @@ def event_info(request, event_id=0):
             event_location1 = request.POST['location1']
             event_location2 = request.POST['location2']
             event_date = request.POST['date']
-            event_time = request.POST['time']
+            event_start = request.POST['start_time']
+            event_end = request.POST['end_time']
 
             event.name = event_name
             event.description = event_description
             event.location1 = event_location1
             event.location2 = event_location2
             event.date = event_date
-            event.time = event_time
+            event.start_time = event_start
+            event.end_time = event_end
             event.save()
 
             return redirect("earth:event_info", event_id=event.id)
