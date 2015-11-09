@@ -16,9 +16,9 @@ class Event(models.Model):
     description = models.CharField(max_length=400, default="")
     location1 = models.CharField(max_length=400, default="")
     location2 = models.CharField(max_length=400, default="")
-    date = models.DateField(default=timezone.now())
-    start_time = models.TimeField(default=timezone.now())
-    end_time = models.TimeField(default=timezone.now())
+    date = models.CharField(max_length=400, default="")
+    start_time = models.CharField(max_length=400, default="")
+    end_time = models.CharField(max_length=400, default="")
 
     def __str__(self):
         return self.name
