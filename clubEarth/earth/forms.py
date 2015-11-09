@@ -52,9 +52,11 @@ class EventForm(forms.ModelForm):
 		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Address 2'}))
 	date = forms.CharField(label ="date", required=True,
 		widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'datepicker', 'placeholder': 'Date'}))
-	time = forms.CharField(label ="time", required=True,
-		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Time'}))
+	start_time = forms.CharField(label ="start_time", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Start Time'}))
+	end_time = forms.CharField(label ="end_time", required=True,
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'End Time'}))
 
 	class Meta:
 		model = Event
-		fields = ["name", "description", "location1", "location2", "date", "time"]
+		fields = ["name", "description", "location1", "location2", "date", "start_time", "end_time"]
