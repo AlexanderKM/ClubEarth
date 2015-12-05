@@ -70,6 +70,12 @@
 .calendar-section{
 	display: inline-block;
 	border-right: 1px solid black;
+	padding-top: 58px;
+	height: 535px;
+}
+
+.calendar-section h2{
+	font-size: 20px;
 }
 
 .event-date{
