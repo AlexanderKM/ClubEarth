@@ -279,3 +279,17 @@ body{
     border-right: solid 1px;
     height: calc(90vh);
 }
+
+#footer {
+	height: 60px;
+	background-color: #003C23;
+	margin-top: 20px;
+}
+
+.container .credit {
+	margin: 20px 0;
+}
+
+.muted {
+	color: white;
+}
