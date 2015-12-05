@@ -9,10 +9,20 @@ Home
 
 <div class="col-md-3 userbar col-buffer-right">
 	<div class="row">
-		<h3>Your Profile:</h3>
-		<p><i class="fa fa-user fa-2x"></i> {{ request.user.username }}</p>
-		<p>Your rank: <span class="badge">4</span> </p>
-	</div>
+		<p>
+			<i class="fa fa-user fa-2x" style="font-size:34px"></i><span style="font-size:30px;display:inline;"> {{ request.user.username }}</span>
+		</p>
+		<p style="font-size:20px;">Your rank: <span class="badge" style="font-size:20px;">4</span> </p>
+		<p>*Your rank is an indicator of how active you are in your community.<br>
+		<br>
+			<span style="font-size:16px;">Suggestions to improve rank:</span>
+			<ul>
+				<li>Attend an Event.</li>
+				<li>Post on the Forums.</li>
+				<li>Refer friends to ClubEarth</li>
+			</ul>
+		</p>
+		</div>
 	<div class="row">
 		<h3>Top Activity:</h3>
 		<div class="col-sm-12">
