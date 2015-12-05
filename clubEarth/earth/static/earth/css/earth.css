@@ -32,23 +32,25 @@ body{
 }
 
 .action_item{
+	margin-top:10px;
 	color:#FFFFFF;
-	font-size:24px;
-	height:40px;
+	font-size:20px;
+	height:30px;
 	border-radius:5px;
 	text-align:center;
-	background: linear-gradient(#0CB02D, #27C447);
+	background: #407e81;
 	cursor:pointer;
 	border:1px solid #cccccc;
 	padding:0 40px;
 }
 
 .action_item:hover{
-	background: #0BA129;
+	background: #9cc2c4;
+	color:#FFFFFF;
 }
 
 .event_title{
-	color:#0BA129;
+	color: #444;
 	font-size:32px;
 	margin-bottom:10px;
 }
@@ -160,19 +162,19 @@ body{
 }
 
 .submit_edits{
-	color:#FFFFFF;
+	color: white;
 	font-size:24px;
 	height:35px;
 	border-radius:5px;
 	text-align:center;
-	background: linear-gradient(#0CB02D, #27C447);
+	background: #407e81;
 	cursor:pointer;
 	border:1px solid #cccccc;
 	padding:0 40px;
 }
 
  .submit_edits:hover{
-	background:#0BA129;
+	background: #9cc2c4;
 }
 
 .edit_actions .cancel_edits{
