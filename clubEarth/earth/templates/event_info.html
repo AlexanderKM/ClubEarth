@@ -19,11 +19,11 @@ Event
 		<input type="text" class="input_title" name="name" value="{{ event.name }}" />
 	</div>
 
-	<div class="col-md-3 col-md-offset-1">
+	<div class="col-md-2 col-md-offset-2">
 		{% if event.host == my_user %}
-		<div class="action_item edit_btn">Edit This Event</div>
+		<div class="action_item edit_btn">Edit</div>
 		{% elif request.user.is_authenticated %}
-		<input type="submit" class="action_item" name="attend_event" value="Attend This Event" />
+		<input type="submit" class="action_item" name="attend_event" value="Attend" />
 		{% endif %}
 	</div>
 
