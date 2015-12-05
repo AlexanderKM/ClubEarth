@@ -32,9 +32,10 @@ body{
 }
 
 .action_item{
+	margin-top:10px;
 	color:#FFFFFF;
-	font-size:24px;
-	height:40px;
+	font-size:20px;
+	height:30px;
 	border-radius:5px;
 	text-align:center;
 	background: linear-gradient(#0CB02D, #27C447);
@@ -45,6 +46,7 @@ body{
 
 .action_item:hover{
 	background: #0BA129;
+	color:#FFFFFF;
 }
 
 .event_title{
