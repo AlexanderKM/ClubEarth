@@ -17,13 +17,13 @@
 .submit-event{
 	margin-top: 25px;
 	float: right;
-	background: #113b74;
+	background: #407e81;
 	color: white;
 	border: 1px #A0A0A0 solid;
 }
 
 .submit-event:hover{
-	background: #5482C1;
+	background: #9cc2c4;
 }
 
 .event-map{
