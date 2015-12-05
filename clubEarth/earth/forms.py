@@ -53,9 +53,9 @@ class EventForm(forms.ModelForm):
 	date = forms.CharField(label ="date", required=True,
 		widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'datepicker', 'placeholder': 'Date'}))
 	start_time = forms.CharField(label ="start_time", required=True,
-		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Start Time'}))
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'State Time: e.g. 10:00am'}))
 	end_time = forms.CharField(label ="end_time", required=True,
-		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'End Time'}))
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'End Time: e.g. 2:00pm'}))
 
 	class Meta:
 		model = Event
